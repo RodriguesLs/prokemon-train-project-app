@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SearchForm } from './SearchForm';
 import { getPokemon } from '../services/pokemon';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 export const List = () => {
   const [abilities, setAbilities] = useState([])
@@ -15,12 +16,16 @@ export const List = () => {
   }
 
   return (
-    <div>
-      <h1>Pokemon searched</h1>
+    <>
+      <AppBar>
+        <Toolbar className='toolbar'>
+          <h1>Search a pokemon abilities by name</h1>
+        </Toolbar>
+      </AppBar>
       <SearchForm handleSearch={handleSearch} />
       <div>
         {abilities}
       </div>
-    </div>
+    </>
   )
 }

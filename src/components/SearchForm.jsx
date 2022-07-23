@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button, TextField } from '@material-ui/core'
 
 export const SearchForm = ({ handleSearch }) => {
   const [input, setInput] = useState('');
@@ -13,15 +14,14 @@ export const SearchForm = ({ handleSearch }) => {
 
   return (
     <form className='pokemon-form' onSubmit={handleSubmit}>
-      <input
-        type='text'
-        placeholder='search pokemon'
+      <TextField
+        label="Pokemon name"
+        variant="outlined"
         value={input}
-        name='text'
-        className='pokemon-input'
-        onChange={handleChange}
+        onInput={handleChange}
+        size='small'
       />
-      <button className='pokemon-button'>Search</button>
+      <Button type='submit' color='primary' variant="contained">Search</Button>
     </form>
   )
 }

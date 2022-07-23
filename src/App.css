@@ -1,0 +1,10 @@
+.pokemon-form {
+  margin: 7em auto;
+  width: 340px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolbar {
+  justify-content: center;
+}

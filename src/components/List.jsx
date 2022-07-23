@@ -26,8 +26,6 @@ export const List = () => {
         setError('')
         setAbilities(res.data)
       }).catch(err => {
-        console.log('err', err)
-        debugger
         setAbilities([])
         setError(err.response.data.message)
       });
@@ -69,7 +67,7 @@ export const List = () => {
               </div>
             </>
           }
-          { error !== '' && error }
+          { error !== '' && <h3 style={{ color: 'red' }}>{ error }</h3> }
         </Card>
       }
     </>

@@ -29,6 +29,7 @@ export const List = () => {
         setAbilities(res.data.abilities);
       }).catch(err => {
         setAbilities([]);
+        setName('')
         setError(err.response.data.message);
       });
   }

@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 
-export const SearchForm = props => {
+export const SearchForm = ({ handleSearch }) => {
   const [input, setInput] = useState('');
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    props.onSubmit({
-      text: input
-    })
+    handleSearch(input);
   }
 
-  const handleChange = e => {
-    setInput(e.value);
-  }
+  const handleChange = e => setInput(e.target.value);
 
   return (
     <form className='pokemon-form' onSubmit={handleSubmit}>

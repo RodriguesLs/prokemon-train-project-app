@@ -18,16 +18,18 @@ const useStyles = makeStyles((theme) => ({
 export const List = () => {
   const classes = useStyles();
   const [abilities, setAbilities] = useState([])
+  const [name, setName] = useState('')
   const [error, setError] = useState('')
 
   const handleSearch = async name => {
     getPokemon(name)
       .then(res => {
-        setError('')
-        setAbilities(res.data)
+        setError('');
+        setName(res.data.name);
+        setAbilities(res.data.abilities);
       }).catch(err => {
-        setAbilities([])
-        setError(err.response.data.message)
+        setAbilities([]);
+        setError(err.response.data.message);
       });
   }
 
@@ -42,12 +44,12 @@ export const List = () => {
       {
         (abilities.length > 0 || error !== '') &&
         <Card className='card-abilities' variant='outlined'>
-          PokemonName
+          <b>{ name.toUpperCase() }</b>
           <Divider />
           {
             error === '' &&
             <>
-              <h4>
+              <h4 class='uppercase'>
                 Powers:
               </h4>
               <div className={classes.root}>

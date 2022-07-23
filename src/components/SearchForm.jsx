@@ -6,7 +6,7 @@ export const SearchForm = ({ handleSearch }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+    setInput('');
     handleSearch(input);
   }
 
